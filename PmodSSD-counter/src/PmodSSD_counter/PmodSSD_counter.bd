@@ -1,0 +1,339 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x32513A2EEBF7473",
+      "device": "xc7a100tcsg324-1",
+      "name": "PmodSSD_counter",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2023.2",
+      "validated": "true"
+    },
+    "design_tree": {
+      "MainCounter_0": "",
+      "SSDMultiplexClock_0": "",
+      "SSDPinMapper_1": "",
+      "SSDBinDecoder_0": "",
+      "SSDBinDecoder_1": "",
+      "SSDPinMapper_0": "",
+      "BinaryToBcd_0": ""
+    },
+    "ports": {
+      "CLK100MHZ": {
+        "direction": "I"
+      },
+      "ja": {
+        "direction": "O",
+        "left": "7",
+        "right": "0"
+      },
+      "jb": {
+        "direction": "O",
+        "left": "7",
+        "right": "0"
+      },
+      "jc": {
+        "direction": "O",
+        "left": "7",
+        "right": "0"
+      },
+      "jd": {
+        "direction": "O",
+        "left": "7",
+        "right": "0"
+      }
+    },
+    "components": {
+      "MainCounter_0": {
+        "vlnv": "xilinx.com:module_ref:MainCounter:1.0",
+        "ip_revision": "1",
+        "xci_name": "PmodSSD_counter_MainCounter_0_0",
+        "xci_path": "ip\\PmodSSD_counter_MainCounter_0_0\\PmodSSD_counter_MainCounter_0_0.xci",
+        "inst_hier_path": "MainCounter_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "MainCounter",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "count_low": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "count_high": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "count": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          }
+        }
+      },
+      "SSDMultiplexClock_0": {
+        "vlnv": "xilinx.com:module_ref:SSDMultiplexClock:1.0",
+        "ip_revision": "1",
+        "xci_name": "PmodSSD_counter_SSDMultiplexClock_0_0",
+        "xci_path": "ip\\PmodSSD_counter_SSDMultiplexClock_0_0\\PmodSSD_counter_SSDMultiplexClock_0_0.xci",
+        "inst_hier_path": "SSDMultiplexClock_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "SSDMultiplexClock",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk_in": {
+            "direction": "I"
+          },
+          "clk_out": {
+            "direction": "O"
+          }
+        }
+      },
+      "SSDPinMapper_1": {
+        "vlnv": "xilinx.com:module_ref:SSDPinMapper:1.0",
+        "ip_revision": "1",
+        "xci_name": "PmodSSD_counter_SSDPinMapper_1_0",
+        "xci_path": "ip\\PmodSSD_counter_SSDPinMapper_1_0\\PmodSSD_counter_SSDPinMapper_1_0.xci",
+        "inst_hier_path": "SSDPinMapper_1",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "SSDPinMapper",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "sel": {
+            "direction": "I"
+          },
+          "digit": {
+            "direction": "I",
+            "left": "6",
+            "right": "0"
+          },
+          "PmodPort1": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "PmodPort2": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          }
+        }
+      },
+      "SSDBinDecoder_0": {
+        "vlnv": "xilinx.com:module_ref:SSDBinDecoder:1.0",
+        "ip_revision": "1",
+        "xci_name": "PmodSSD_counter_SSDBinDecoder_0_0",
+        "xci_path": "ip\\PmodSSD_counter_SSDBinDecoder_0_0\\PmodSSD_counter_SSDBinDecoder_0_0.xci",
+        "inst_hier_path": "SSDBinDecoder_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "SSDBinDecoder",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "mux_clk": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "data": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "sel": {
+            "direction": "O"
+          },
+          "digit": {
+            "direction": "O",
+            "left": "6",
+            "right": "0"
+          }
+        }
+      },
+      "SSDBinDecoder_1": {
+        "vlnv": "xilinx.com:module_ref:SSDBinDecoder:1.0",
+        "ip_revision": "1",
+        "xci_name": "PmodSSD_counter_SSDBinDecoder_1_0",
+        "xci_path": "ip\\PmodSSD_counter_SSDBinDecoder_1_0\\PmodSSD_counter_SSDBinDecoder_1_0.xci",
+        "inst_hier_path": "SSDBinDecoder_1",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "SSDBinDecoder",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "mux_clk": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "data": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "sel": {
+            "direction": "O"
+          },
+          "digit": {
+            "direction": "O",
+            "left": "6",
+            "right": "0"
+          }
+        }
+      },
+      "SSDPinMapper_0": {
+        "vlnv": "xilinx.com:module_ref:SSDPinMapper:1.0",
+        "ip_revision": "1",
+        "xci_name": "PmodSSD_counter_SSDPinMapper_0_0",
+        "xci_path": "ip\\PmodSSD_counter_SSDPinMapper_0_0\\PmodSSD_counter_SSDPinMapper_0_0.xci",
+        "inst_hier_path": "SSDPinMapper_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "SSDPinMapper",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "sel": {
+            "direction": "I"
+          },
+          "digit": {
+            "direction": "I",
+            "left": "6",
+            "right": "0"
+          },
+          "PmodPort1": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "PmodPort2": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          }
+        }
+      },
+      "BinaryToBcd_0": {
+        "vlnv": "xilinx.com:module_ref:BinaryToBcd:1.0",
+        "ip_revision": "1",
+        "xci_name": "PmodSSD_counter_BinaryToBcd_0_0",
+        "xci_path": "ip\\PmodSSD_counter_BinaryToBcd_0_0\\PmodSSD_counter_BinaryToBcd_0_0.xci",
+        "inst_hier_path": "BinaryToBcd_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "BinaryToBcd",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "binary": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "bcd_1100": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "bcd_0011": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          }
+        }
+      }
+    },
+    "nets": {
+      "BinaryToBcd_0_bcd_0011": {
+        "ports": [
+          "BinaryToBcd_0/bcd_0011",
+          "SSDBinDecoder_0/data"
+        ]
+      },
+      "BinaryToBcd_0_bcd_1100": {
+        "ports": [
+          "BinaryToBcd_0/bcd_1100",
+          "SSDBinDecoder_1/data"
+        ]
+      },
+      "GCLK100_1": {
+        "ports": [
+          "CLK100MHZ",
+          "SSDMultiplexClock_0/clk_in",
+          "MainCounter_0/clk"
+        ]
+      },
+      "MainCounter_0_count": {
+        "ports": [
+          "MainCounter_0/count",
+          "BinaryToBcd_0/binary"
+        ]
+      },
+      "SSDBinDecoder_0_segments": {
+        "ports": [
+          "SSDBinDecoder_0/digit",
+          "SSDPinMapper_0/digit"
+        ]
+      },
+      "SSDBinDecoder_0_sel": {
+        "ports": [
+          "SSDBinDecoder_0/sel",
+          "SSDPinMapper_0/sel"
+        ]
+      },
+      "SSDBinDecoder_1_segments": {
+        "ports": [
+          "SSDBinDecoder_1/digit",
+          "SSDPinMapper_1/digit"
+        ]
+      },
+      "SSDBinDecoder_1_sel": {
+        "ports": [
+          "SSDBinDecoder_1/sel",
+          "SSDPinMapper_1/sel"
+        ]
+      },
+      "SSDMultiplexClock_0_clk_out": {
+        "ports": [
+          "SSDMultiplexClock_0/clk_out",
+          "SSDBinDecoder_0/mux_clk",
+          "SSDBinDecoder_1/mux_clk"
+        ]
+      },
+      "SSDPinMapper_0_PmodPort1": {
+        "ports": [
+          "SSDPinMapper_0/PmodPort1",
+          "ja"
+        ]
+      },
+      "SSDPinMapper_0_PmodPort2": {
+        "ports": [
+          "SSDPinMapper_0/PmodPort2",
+          "jb"
+        ]
+      },
+      "SSDPinMapper_1_PmodPort1": {
+        "ports": [
+          "SSDPinMapper_1/PmodPort1",
+          "jc"
+        ]
+      },
+      "SSDPinMapper_1_PmodPort2": {
+        "ports": [
+          "SSDPinMapper_1/PmodPort2",
+          "jd"
+        ]
+      }
+    }
+  }
+}

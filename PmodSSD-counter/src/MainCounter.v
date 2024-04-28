@@ -4,7 +4,8 @@
 module MainCounter(
     input clk,               // 100 MHz clock input
     output reg [7:0] count_low,  // 8-bit output for the low byte of the counter
-    output reg [7:0] count_high  // 8-bit output for the high byte of the counter
+    output reg [7:0] count_high,  // 8-bit output for the high byte of the counter
+    output reg [15:0] count
 );
 
 // Define the constant for the maximum count to achieve a 100 Hz update rate
@@ -26,6 +27,7 @@ always @(posedge clk) begin
     end else begin
         clock_divider <= clock_divider + 1;  // Increment the clock cycle counter
     end
+    count <= full_count;
 end
 
 endmodule

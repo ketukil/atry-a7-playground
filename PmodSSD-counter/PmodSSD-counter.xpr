@@ -117,11 +117,21 @@
           <Attr Name="UsedIn" Val="implementation"/>
         </FileInfo>
       </File>
+      <File Path="$PPRDIR/src/BinaryToBcd.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PPRDIR/src/PmodSSD_counter/PmodSSD_counter.bd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
         </FileInfo>
+        <CompFileExtendedInfo CompFileName="PmodSSD_counter.bd" FileRelPathName="ip/PmodSSD_counter_BinaryToBcd_0_0/PmodSSD_counter_BinaryToBcd_0_0.xci">
+          <Proxy FileSetName="PmodSSD_counter_BinaryToBcd_0_0"/>
+        </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="PmodSSD_counter.bd" FileRelPathName="ip/PmodSSD_counter_MainCounter_0_0/PmodSSD_counter_MainCounter_0_0.xci">
           <Proxy FileSetName="PmodSSD_counter_MainCounter_0_0"/>
         </CompFileExtendedInfo>
@@ -168,6 +178,9 @@
       <Filter Type="Srcs"/>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
+        <Option Name="TopModule" Val="BinaryToBcd"/>
+        <Option Name="TopLib" Val="xil_defaultlib"/>
+        <Option Name="TopRTLFile" Val="$PPRDIR/src/BinaryToBcd.v"/>
         <Option Name="TopAutoSet" Val="TRUE"/>
         <Option Name="TransportPathDelay" Val="0"/>
         <Option Name="TransportIntDelay" Val="0"/>
@@ -181,21 +194,8 @@
     </FileSet>
     <FileSet Name="utils_1" Type="Utils" RelSrcDir="$PSRCDIR/utils_1" RelGenDir="$PGENDIR/utils_1">
       <Filter Type="Utils"/>
-      <File Path="$PSRCDIR/utils_1/imports/synth_1/main.dcp">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="AutoDcp" Val="1"/>
-        </FileInfo>
-      </File>
       <Config>
         <Option Name="TopAutoSet" Val="TRUE"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="PmodSSD_counter_MainCounter_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/PmodSSD_counter_MainCounter_0_0" RelGenDir="$PGENDIR/PmodSSD_counter_MainCounter_0_0">
-      <Config>
-        <Option Name="TopModule" Val="PmodSSD_counter_MainCounter_0_0"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
     <FileSet Name="PmodSSD_counter_SSDBinDecoder_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/PmodSSD_counter_SSDBinDecoder_0_0" RelGenDir="$PGENDIR/PmodSSD_counter_SSDBinDecoder_0_0">
@@ -228,6 +228,18 @@
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
+    <FileSet Name="PmodSSD_counter_MainCounter_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/PmodSSD_counter_MainCounter_0_0" RelGenDir="$PGENDIR/PmodSSD_counter_MainCounter_0_0">
+      <Config>
+        <Option Name="TopModule" Val="PmodSSD_counter_MainCounter_0_0"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="PmodSSD_counter_BinaryToBcd_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/PmodSSD_counter_BinaryToBcd_0_0" RelGenDir="$PGENDIR/PmodSSD_counter_BinaryToBcd_0_0">
+      <Config>
+        <Option Name="TopModule" Val="PmodSSD_counter_BinaryToBcd_0_0"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
   </FileSets>
   <Simulators>
     <Simulator Name="XSim">
@@ -257,18 +269,6 @@
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
       <ReportStrategy Name="No Reports" Flow="Vivado Synthesis 2023"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="PmodSSD_counter_MainCounter_0_0_synth_1" Type="Ft3:Synth" SrcSet="PmodSSD_counter_MainCounter_0_0" Part="xc7a100tcsg324-1" ConstrsSet="PmodSSD_counter_MainCounter_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/PmodSSD_counter_MainCounter_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/PmodSSD_counter_MainCounter_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/PmodSSD_counter_MainCounter_0_0_synth_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2023">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2023"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
@@ -332,6 +332,30 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
+    <Run Id="PmodSSD_counter_MainCounter_0_0_synth_1" Type="Ft3:Synth" SrcSet="PmodSSD_counter_MainCounter_0_0" Part="xc7a100tcsg324-1" ConstrsSet="PmodSSD_counter_MainCounter_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/PmodSSD_counter_MainCounter_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/PmodSSD_counter_MainCounter_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/PmodSSD_counter_MainCounter_0_0_synth_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2023">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2023"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="PmodSSD_counter_BinaryToBcd_0_0_synth_1" Type="Ft3:Synth" SrcSet="PmodSSD_counter_BinaryToBcd_0_0" Part="xc7a100tcsg324-1" ConstrsSet="PmodSSD_counter_BinaryToBcd_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/PmodSSD_counter_BinaryToBcd_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/PmodSSD_counter_BinaryToBcd_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/PmodSSD_counter_BinaryToBcd_0_0_synth_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2023">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2023"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
     <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="constrs_1" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" Dir="$PRUNDIR/impl_1" SynthRun="synth_1" IncludeInArchive="true" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/impl_1" LaunchOptions="-jobs 12 " AutoRQSDir="$PSRCDIR/utils_1/imports/impl_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2023">
@@ -347,29 +371,11 @@
         <Step Id="post_route_phys_opt_design"/>
         <Step Id="write_bitstream">
           <Option Id="BinFile">1</Option>
+          <Option Id="RawbitFileBool">1</Option>
         </Step>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
       <ReportStrategy Name="No Reports" Flow="Vivado Implementation 2023"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="PmodSSD_counter_MainCounter_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="PmodSSD_counter_MainCounter_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="PmodSSD_counter_MainCounter_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/PmodSSD_counter_MainCounter_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/PmodSSD_counter_MainCounter_0_0_impl_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2023">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2023"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
@@ -450,6 +456,44 @@
       <RQSFiles/>
     </Run>
     <Run Id="PmodSSD_counter_SSDPinMapper_1_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="PmodSSD_counter_SSDPinMapper_1_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="PmodSSD_counter_SSDPinMapper_1_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/PmodSSD_counter_SSDPinMapper_1_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/PmodSSD_counter_SSDPinMapper_1_0_impl_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2023">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2023"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="PmodSSD_counter_MainCounter_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="PmodSSD_counter_MainCounter_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="PmodSSD_counter_MainCounter_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/PmodSSD_counter_MainCounter_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/PmodSSD_counter_MainCounter_0_0_impl_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2023">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2023"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="PmodSSD_counter_BinaryToBcd_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="PmodSSD_counter_BinaryToBcd_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="PmodSSD_counter_BinaryToBcd_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/PmodSSD_counter_BinaryToBcd_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/PmodSSD_counter_BinaryToBcd_0_0_impl_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2023">
           <Desc>Default settings for Implementation.</Desc>
